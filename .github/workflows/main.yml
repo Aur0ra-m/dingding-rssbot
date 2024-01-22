@@ -1,0 +1,28 @@
+# 钉钉 rss 推送机器人
+name: DingDingRssBot
+
+on:
+  schedule:
+    - cron: '0 0/1 * * *'
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Checkout codes'
+      uses: actions/checkout@v2
+    - name: Set up Python Version
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+    - name: Install dependencies
+      run: |
+        cd robot
+        pip install -r requirements.txt
+    - name: send rss
+      env:
+        DD_WEBHOOK: ${{ secrets.webhook }}
+        DD_SECRET: ${{ secrets.secret }}
+      run: |
+        cd robot
+        python rss.py
