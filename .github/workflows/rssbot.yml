@@ -28,6 +28,7 @@ jobs:
         python rss.py
     - name: Commit
       run: |
+        git pull
         git config --global user.email leetao94cn@gmail.com
         git config --global user.name lt94
         git add .
