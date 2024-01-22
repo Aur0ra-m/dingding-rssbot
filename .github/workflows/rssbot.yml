@@ -1,9 +1,11 @@
 # 钉钉 rss 推送机器人
 name: DingDingRssBot
 
-on: workflow_dispatch
-  # schedule:
-  #   - cron: '0 0/1 * * *'
+# 手动触发，https://docs.github.com/zh/actions/using-workflows/manually-running-a-workflow
+# on: workflow_dispatch
+on:
+  schedule:
+    - cron: '0 0/1 * * *'
     
 jobs:
   build:
