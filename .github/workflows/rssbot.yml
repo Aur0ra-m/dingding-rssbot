@@ -1,9 +1,9 @@
 # 钉钉 rss 推送机器人
 name: DingDingRssBot
 
-on:
-  schedule:
-    - cron: '0 0/1 * * *'
+on: workflow_dispatch
+  # schedule:
+  #   - cron: '0 0/1 * * *'
     
 jobs:
   build:
